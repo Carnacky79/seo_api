@@ -1,0 +1,367 @@
+/* Mobile Responsive Styles for Dashboard */
+
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+
+    .stats-cards {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .subscription-plans {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 100%;
+    }
+
+    /* Header adjustments */
+    .dashboard-header {
+        padding: 0 1rem;
+    }
+
+    .dashboard-header .logo span {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Sidebar adjustments */
+    .dashboard-sidebar {
+        transform: translateX(-100%);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        z-index: 1040;
+    }
+
+    .sidebar-visible .dashboard-sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1030;
+        display: none;
+    }
+
+    .sidebar-visible .sidebar-overlay {
+        display: block;
+    }
+
+    /* Content adjustments */
+    .dashboard-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    /* Cards and grid layouts */
+    .stats-cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .subscription-plans {
+        grid-template-columns: 1fr;
+    }
+
+    /* API Tester */
+    .api-tester {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .api-request-body textarea,
+    .api-response-body pre {
+        min-height: 150px;
+    }
+
+    /* Payment history table */
+    .payment-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Form elements */
+    .form-group {
+        margin-bottom: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Further adjustments for very small screens */
+    .dashboard-header {
+        padding: 0 0.75rem;
+    }
+
+    .dashboard-header .logo img {
+        height: 28px;
+    }
+
+    .dashboard-header .user-menu span {
+        display: none;
+    }
+
+    .page-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-card .card-value {
+        font-size: 1.25rem;
+    }
+
+    .card-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    /* API Key Display */
+    .api-key-display {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .api-key-actions {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        justify-content: space-between;
+    }
+
+    /* Tabs */
+    .tab-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-link {
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Plan cards */
+    .plan-card {
+        padding: 1rem;
+    }
+
+    .plan-name {
+        font-size: 1.125rem;
+    }
+
+    .plan-price {
+        font-size: 1.75rem;
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 577px) and (max-width: 1024px) {
+    .stats-cards {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .card-header {
+        padding: 0.875rem 1.125rem;
+    }
+
+    .card-body {
+        padding: 1.125rem;
+    }
+}
+
+/* Portrait orientation specific */
+@media (max-width: 768px) and (orientation: portrait) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-card {
+        display: flex;
+        align-items: center;
+    }
+
+    .stats-card .card-icon {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+}
+
+/* Touch-specific improvements */
+@media (hover: none) {
+    /* Increase touch targets */
+    .nav-link {
+        padding: 0.875rem 1.5rem;
+    }
+
+    .btn {
+        min-height: 44px;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 44px;
+        padding: 0.625rem 0.875rem;
+    }
+
+    /* Improve scrolling */
+    .dashboard-sidebar {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Other touch-friendly adjustments */
+    .card:hover,
+    .stats-card:hover,
+    .plan-card:hover {
+        transform: none;
+    }
+}
+
+/* Dark mode support for devices with dark mode preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #3b82f6;
+        --primary-hover: #2563eb;
+        --secondary-color: #64748b;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --danger-color: #ef4444;
+        --light-color: #f3f4f6;
+        --dark-color: #e5e7eb;
+        --border-color: #374151;
+        --text-color: #e5e7eb;
+        --text-muted: #9ca3af;
+        --bg-light: #1f2937;
+        --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+        background-color: #111827;
+    }
+
+    .dashboard-header,
+    .dashboard-sidebar,
+    .dashboard-footer,
+    .card,
+    .stats-card,
+    .plan-card,
+    .api-request,
+    .api-response {
+        background-color: #1f2937;
+        border-color: #374151;
+    }
+
+    .api-request-header,
+    .api-response-header,
+    .nav-link:hover,
+    .api-key-display,
+    .api-request-body textarea,
+    .api-response-body pre,
+    .form-control,
+    .form-select,
+    .dropdown-menu {
+        background-color: #111827;
+        border-color: #374151;
+    }
+
+    .api-key-actions button:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+
+    .alert-success {
+        color: #a7f3d0;
+        background-color: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .alert-danger {
+        color: #fecaca;
+        background-color: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .alert-warning {
+        color: #fcd34d;
+        background-color: rgba(245, 158, 11, 0.1);
+        border-color: rgba(245, 158, 11, 0.2);
+    }
+
+    .alert-info {
+        color: #93c5fd;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .status-paid {
+        background-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .status-pending {
+        background-color: rgba(245, 158, 11, 0.2);
+    }
+
+    .status-failed {
+        background-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .documentation pre,
+    .documentation code {
+        background-color: #111827;
+    }
+
+    /* Make images less harsh in dark mode */
+    img {
+        opacity: 0.9;
+    }
+}
+
+/* Animations and transitions */
+.nav-link,
+.btn,
+.stats-card,
+.plan-card,
+.api-key-actions button,
+.dropdown-item,
+.user-menu {
+    transition: all 0.2s ease-in-out;
+}
+
+.dashboard-sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Improve accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

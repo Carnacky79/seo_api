@@ -1,0 +1,40 @@
+# Abilita il rewrite engine
+RewriteEngine On
+
+# Imposta il base path
+RewriteBase /
+
+# Se il file richiesto esiste, servilo direttamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Reindirizza tutte le richieste API a index.php
+RewriteRule ^api/(.*)$ index.php [L,QSA]
+
+# Reindirizza la root a index.php
+RewriteRule ^$ index.php [L,QSA]
+
+# Imposta gli header di sicurezza
+<IfModule mod_headers.c>
+    # Protegge contro attacchi XSS
+    Header set X-XSS-Protection "1; mode=block"
+
+    # Previene MIME-type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Previeni il clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+
+    # Limita le informazioni sul server
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# Imposta il limite di dimensione per le richieste POST
+<IfModule mod_php7.c>
+    php_value post_max_size 10M
+    php_value upload_max_filesize 8M
+    php_value max_execution_time 60
+    php_value max_input_time 60
+</IfModule>

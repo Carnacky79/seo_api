@@ -1,0 +1,26 @@
+{
+  "name": "seo-metadata-api/api",
+  "description": "API per la generazione automatica di metadati SEO ottimizzati",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "stripe/stripe-php": "^10.0",
+    "guzzlehttp/guzzle": "^7.0",
+    "vlucas/phpdotenv": "^5.3",
+    "firebase/php-jwt": "^6.0",
+    "symfony/dom-crawler": "^6.0",
+    "symfony/css-selector": "^6.0",
+    "phpmailer/phpmailer": "^6.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "SeoMetadataApi\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "SEO Metadata Team"
+    }
+  ],
+  "minimum-stability": "stable"
+}
